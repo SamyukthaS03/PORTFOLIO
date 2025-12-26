@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samyuktha S | Vertical Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-beige: #F4F1EA;
+            --text-main: #333333;
+            --accent: #A59684;
+            --white-card: #FFFFFF;
+        }
+
+        /* 1. VERTICAL SCROLL SNAP */
+        html, body {
+            margin: 0; padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent default scrolling */
+        }
+
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory; /* Vertical snap */
+            scroll-behavior: smooth;
+        }
+
+        .scroll-section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            padding-top: 100px;
+            background-color: var(--bg-beige);
+        }
+
+        /* 2. FIXED NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(208, 192, 154, 0.95) !important;
+            padding: 1rem 0;
+        }
+
+        /* 3. VERTICAL DOT INDICATOR */
+        .side-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            opacity: 0.3;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            border: 2px solid var(--accent);
+        }
+
+        /* Highlight class added via JavaScript */
+        .dot.active {
+            opacity: 1;
+            transform: scale(1.5);
+            background-color: var(--text-main);
+        }
+
+        /* Hide Scrollbar */
+        .scroll-container::-webkit-scrollbar { display: none; }
+        .scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Content Styling */
+        h1, h2, h3, .nav-link { font-family: 'Playfair Display', serif; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid white; display: block; margin: 0 auto 20px; }
+        .skill-tag { background: white; padding: 8px 20px; border-radius: 50px; display: inline-block; margin: 5px; font-size: 0.85rem; border: 1px solid #e0ddd5; }
+        .btn-minimal { background-color: var(--text-main); color: white; border-radius: 0; padding: 12px 40px; border: none; }
+        footer { margin-top: auto; padding-bottom: 20px; text-align: center; font-size: 0.8rem; opacity: 0.5; }
+    </style>
+</head>
+<body>
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#">SAMYUKTHA S</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Portfolio</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div class="side-nav">
+        <a href="#about" class="dot active" data-section="about"></a>
+        <a href="#resume" class="dot" data-section="resume"></a>
+        <a href="#contact" class="dot" data-section="contact"></a>
+         <a href="#portfolio" class="dot" data-section="portfolio"></a>
+    </div>
+
+    <div class="scroll-container" id="main-container">
+        
+        <section id="about" class="scroll-section">
+            <div class="container text-center">
+                <img src="image.png" alt="Samyuktha S" class="profile-img">
+                <h1 class="display-2 fw-bold">SAMYUKTHA S</h1>
+                <p class="text-uppercase tracking-widest mb-4">ARTIFICIAL INTELLIGENCE & Machine Learning Student</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <p class="lead">Enthusiastic AI/ML student at Bannari Amman Institute. Focusing on algorithms and real-world AI applications. A curious student passionate about learning, experimenting with data, and building intelligent systems through hands-on projects.</p>
+                    </div>
+                </div>
+            </div>
+            <footer>&copy; 2025 BY SAMYUKTHA S.</footer>
+        </section>
+
+        <section id="resume" class="scroll-section" style="background-color: #ffffff;">
+            <div class="container py-4">
+                <h2 class="text-center mb-5 display-5">Resume</h2>
+                <div class="row mb-5">
+                    <div class="col-md-4"><h3 style="color:var(--accent)">Education</h3></div>
+                    <div class="col-md-8">
+                        <h5 class="fw-bold">Bannari Amman Institute of Technology</h5>
+                        <h6>Sathyamangalam</h6>
+                        <p>B.Tech – AI & ML | 2024-2028 | CGPA : 7.89</p>
+                        <h6>[Currently Pursuing]</h6>
+                        <h5 class="fw-bold mt-4">Sri Shakthi International School</h5>
+                        <h6>Tiruppur</h6>
+                        <p>Secondary School | 2022-2024 | Score : 91.4%</p>
+                        <h5 class="fw-bold mt-4">Kongu Public School</h5>
+                        <h6>Coimbatore</h6>
+                        <p>High School | 2020-2022 | Score : 93.2%</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><h3 style="color:var(--accent)">Skills</h3></div>
+                    <div class="col-md-8">
+                        <span class="skill-tag">C Language</span> 
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Aptitute</span>
+                        <span class="skill-tag">General Engineering</span>
+                        <span class="skill-tag">Basics of HTML , CSS</span>
+                    </div>
+
+                </div>
+
+                <p>
+
+
+                </p>
+                <div class="row">
+                    <div class="col-md-4"><h3 style="color:var(--accent)">Certifications</h3></div>
+                    <div class="col-md-8">
+                        <span class="skill-tag">Google's Gemini</span> 
+                        <span class="skill-tag">Alison</span>
+                        <span class="skill-tag">GUVI | HCL</span>
+                        <span class="skill-tag">HackerRank</span>
+                    </div>
+                </div>
+            </div>
+            <footer>&copy; 2025 BY SAMYUKTHA S.</footer>
+        </section>
+
+        <section id="contact" class="scroll-section d-flex min-vh-100 justify-content-center align-items-center">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-center">
+                    <div class="col-md-6">
+                        <h2 class="display-5 mb-4">Contact</h2>
+                        <p><strong>Phone:</strong> 93422 90007</p>
+                        <p><strong>Email:</strong> samyuktha90007@gmail.com</p>
+                        <p><strong>Location:</strong> Coimbatore, India</p>
+                        <div class="mt-4">
+                            <a href="https://github.com/SamyukthaS03" class="text-dark me-3">GitHub</a>
+                            <a href="https://www.linkedin.com/in/samyuktha-s-563576355/" class="text-dark me-3">LinkedIn</a>
+                            <a href="mailto:samyuktha90007@gmail.com" class="text-dark me-3">Mail</a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    
+    <div class="card p-5 shadow-sm" style="width: 100%; max-width: 500px;">
+        <form action="https://formspree.io/f/your-actual-id-here" method="POST">
+            
+            <div class="mb-4">
+                <input type="text" name="name" class="form-control" placeholder="Name" required>
+            </div>
+
+            <div class="mb-4">
+                <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+            </div>
+
+            <div class="mb-4">
+                <textarea name="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-dark w-100 py-2">SEND</button>
+        </form>
+    </div>
+</div>
+                </div>
+            </div>
+            <footer>&copy; 2025 BY SAMYUKTHA S</footer>
+        </section>
+        <section id="portfolio" class="scroll-section d-flex align-items-center justify-content-center" style="background-color: white;">
+<h1>My Portfolio</h1>
+<p>
+    
+Welcome to my portfolio. Here you’ll find a selection of my work. Explore my projects to learn more about what I do.
+</p>
+        </section>
+
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('.scroll-section');
+        const dots = document.querySelectorAll('.dot');
+
+        const options = {
+            threshold: 0.6 // Dot changes when 60% of section is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    dots.forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.getAttribute('data-section') === entry.target.id) {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, options);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
